@@ -1,0 +1,120 @@
+/* === Modern Developer Portfolio Theme === */
+
+:root {
+  --bg: #0b0d12;
+  --bg-secondary: #11141b;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --card: #151922;
+  --border: #1f2937;
+  --radius: 14px;
+  --transition: 0.25s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #0f1117;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+nav a {
+  color: var(--text);
+  margin-left: 24px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* Layout */
+
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 22px;
+  border-radius: var(--radius);
+  margin-bottom: 25px;
+  box-shadow: 0 0 20px #00000033;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px #00000055;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Lists */
+ul {
+  margin-left: 20px;
+  margin-top: 8px;
+}

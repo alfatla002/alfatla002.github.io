@@ -1,82 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Projects | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<header>
-  <div class="logo">Projects</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="resume.html">Resume</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
-  <h1>All Projects</h1>
+<section class="section">
+  <div class="container">
+    <div class="kicker">Work</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:14px;">Projects</h1>
+    <p class="lede" style="margin-bottom:22px;">
+      A mix of cloud, DevOps, backend systems, and security-focused work. Click any project to see details.
+    </p>
 
-  <div class="card">
-    <h2><a href="projects/lockheed.html">Remote Rendering (Lockheed Martin)</a></h2>
-    <p>Distributed rendering pipeline using Unity, ArenaXR, Docker, and remote GPU sessions.</p>
+    <div class="grid">
+
+      <div class="card">
+        <a class="card-link" href="projects/lockheed.html">
+          <h3>Remote Rendering (Lockheed Martin)</h3>
+          <p>Unity + ArenaXR + Docker split-rendering to stream high-poly content to low-end devices.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/butterbot.html">
+          <h3>ButterBot Discord Economy System</h3>
+          <p>SQL-backed bot with loans, shop UI, inventory, bodyguards, cooldown tracking, and modular architecture.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/supabase.html">
+          <h3>Supabase Image Gallery</h3>
+          <p>Storage file browser with thumbnails, multi-upload, filters, bulk actions, and a secure service-role backend.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/marvel.html">
+          <h3>Marvel API Microservice</h3>
+          <p>Node/Express REST API that ingests Marvel data, uses MD5 signing, and caches results in Supabase.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/ecs.html">
+          <h3>AWS ECS Cloud Deployment</h3>
+          <p>Containerized deployment using ECS Fargate + ALB + Docker, with Cloudflare routing.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/cloudflare.html">
+          <h3>Cloudflare + Nginx Proxy Manager</h3>
+          <p>Reverse proxy + DNS architecture: SSL, routing, tunnels, and multi-service subdomain management.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/devops-labs.html">
+          <h3>DevOps Labs (Docker, PM2, Supabase)</h3>
+          <p>Hands-on deployments: Docker Compose stacks, PM2 hosting, Nginx static hosting, .env configuration.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/cybersecurity-labs.html">
+          <h3>Cybersecurity Labs</h3>
+          <p>SQLi testing (SQLMap), password cracking (John the Ripper), SET phishing demos, DAC/umask exercises.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/ai-testgen.html">
+          <h3>AI-Assisted JUnit Test Generator</h3>
+          <p>Research: classify GitHub issues/user stories and generate structured JUnit test case schemas using LLMs.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/bookstore.html">
+          <h3>Bookstore Purchase System (Java)</h3>
+          <p>Console program that collects inputs, calculates totals, and outputs formatted results (Scanner + loops).</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/java-utilities.html">
+          <h3>Java Utility Programs</h3>
+          <p>Arrays, loops, max/avg tools, forward/reverse printing, multiples generator, scanner-based utilities.</p>
+        </a>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2><a href="projects/butterbot.html">ButterBot Discord Economy System</a></h2>
-    <p>SQL-backed Discord bot with loans, shop UI, bodyguards, cooldowns, and modular cogs.</p>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi • Built with HTML/CSS • Hosted on GitHub Pages
   </div>
+</footer>
 
-  <div class="card">
-    <h2><a href="projects/supabase.html">Supabase Image Gallery</a></h2>
-    <p>Full Supabase Storage file browser with thumbnails, multi-upload, filters, and secure backend.</p>
-  </div>
-
-  <div class="card">
-    <h2><a href="projects/marvel.html">Marvel API Microservice</a></h2>
-    <p>Node.js REST API using MD5 signing to fetch and cache Marvel character data in Supabase.</p>
-  </div>
-
-  <div class="card">
-    <h2><a href="projects/ecs.html">AWS ECS Cloud Deployment</a></h2>
-    <p>Containerized hosting using Fargate, ALB, Cloudflare routing, and Dockerized site deployment.</p>
-  </div>
-
-  <div class="card">
-    <h2><a href="projects/cloudflare.html">Cloudflare + Nginx Proxy Manager</a></h2>
-    <p>Reverse proxy architecture with DNS management, tunnels, SSL, and domain routing.</p>
-  </div>
-
-  <div class="card">
-    <h2><a href="projects/devops-labs.html">DevOps Labs (Docker, PM2, Supabase)</a></h2>
-    <p>Hands-on environment configuration, Docker networking, Supabase local stack, PM2 hosting.</p>
-  </div>
-
-  <div class="card">
-    <h2><a href="projects/cybersecurity-labs.html">Cybersecurity Labs</a></h2>
-    <p>SQL injection testing, John the Ripper password cracking, SET phishing, DAC/umask exercises.</p>
-  </div>
-
-  <div class="card">
-    <h2><a href="projects/ai-testgen.html">AI-Assisted JUnit Test Case Generator</a></h2>
-    <p>LLM-assisted classification of GitHub issues and automated generation of JUnit test schemas.</p>
-  </div>
-
-  <div class="card">
-    <h2><a href="projects/bookstore.html">Bookstore Purchase System (Java)</a></h2>
-    <p>Java input-handling and arithmetic program for calculating purchase totals.</p>
-  </div>
-
-  <div class="card">
-    <h2><a href="projects/java-utilities.html">Java Utility Programs</a></h2>
-    <p>Collection of Java exercises demonstrating loops, arrays, input, and basic algorithms.</p>
-  </div>
-
-</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

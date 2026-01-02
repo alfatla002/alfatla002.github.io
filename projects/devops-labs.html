@@ -1,55 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>DevOps Labs | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">DevOps, Docker, and Deployment Labs</h1>
 
-  <h1>DevOps, Docker, and Deployment Labs</h1>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          A series of hands-on labs completed across multiple courses involving Docker,
+          Node.js deployments, PM2 process management, Supabase self-hosted stack,
+          Nginx static hosting, and environment configuration.
+        </p>
+      </div>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      A series of hands-on labs completed across multiple courses involving Docker,
-      Node.js deployments, PM2 process management, Supabase self-hosted stack,
-      Nginx static hosting, and environment configuration.
-    </p>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Docker & Docker Compose</li>
+          <li>Nginx static server</li>
+          <li>Supabase self-hosted stack (Kong, Studio, Realtime, Postgres)</li>
+          <li>PM2 (Node.js process manager)</li>
+          <li>Environment configuration (.env, JWT, keys)</li>
+          <li>Ubuntu server hosting & SSH</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Key Lab Work</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Hosted static websites inside Dockerized Nginx</li>
+          <li>Rebuilt Supabase dev stack via Docker Compose</li>
+          <li>Configured and deployed Next.js with PM2</li>
+          <li>Debugged container mount issues and network overlays</li>
+          <li>Managed environment variables securely for cloud deployments</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2>Technologies Used</h2>
-    <ul>
-      <li>Docker & Docker Compose</li>
-      <li>Nginx static server</li>
-      <li>Supabase self-hosted stack (Kong, Studio, Realtime, Postgres)</li>
-      <li>PM2 (Node.js process manager)</li>
-      <li>Environment configuration (.env, JWT, keys)</li>
-      <li>Ubuntu server hosting & SSH</li>
-    </ul>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
   </div>
+</footer>
 
-  <div class="card">
-    <h2>Key Lab Work</h2>
-    <ul>
-      <li>Hosted static websites inside Dockerized Nginx</li>
-      <li>Rebuilt Supabase dev stack via Docker Compose</li>
-      <li>Configured and deployed Next.js with PM2</li>
-      <li>Debugged container mount issues and network overlays</li>
-      <li>Managed environment variables securely for cloud deployments</li>
-    </ul>
-  </div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-</div>
 </body>
 </html>

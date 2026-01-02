@@ -1,46 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Java Utility Programs | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Java Utility Programs</h1>
 
-  <h1>Java Utility Programs</h1>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Programs Included</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Array sum calculator</li>
+          <li>Average-of-array tool</li>
+          <li>Forward & reverse list printer</li>
+          <li>Multiples-of-N generator</li>
+          <li>Max-of-three finder</li>
+          <li>Scanner-based input utilities</li>
+        </ul>
+      </div>
 
-  <div class="card">
-    <h2>Programs Included</h2>
-    <ul>
-      <li>Array sum calculator</li>
-      <li>Average-of-array tool</li>
-      <li>Forward & reverse list printer</li>
-      <li>Multiples-of-N generator</li>
-      <li>Max-of-three finder</li>
-      <li>Scanner-based input utilities</li>
-    </ul>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Concepts Demonstrated</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>For-loops & iteration</li>
+          <li>Conditionals (if / switch / comparisons)</li>
+          <li>Array initialization & traversal</li>
+          <li>Method creation & return values</li>
+          <li>User input with Scanner</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2>Concepts Demonstrated</h2>
-    <ul>
-      <li>For-loops & iteration</li>
-      <li>Conditionals (if / switch / comparisons)</li>
-      <li>Array initialization & traversal</li>
-      <li>Method creation & return values</li>
-      <li>User input with Scanner</li>
-    </ul>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
   </div>
+</footer>
 
-</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

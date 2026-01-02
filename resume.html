@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Resume | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <div class="logo">Resume</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="resume.html">Resume</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a class="active" href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="Ali_Al-Fatlawi_Resume.pdf" download>Download PDF</a>
+  </div>
 </header>
 
-<div class="container">
-
-  <h1>My Resume</h1>
-
-  <div class="card">
-    <p>You can download my resume using the link below:</p>
-    <a class="button" href="Ali_Al-Fatlawi_Resume.pdf" download>⬇ Download Resume (PDF)</a>
-  </div>
-
-  <div class="card">
-    <h2>Summary</h2>
-    <p>
-      Software Engineer with experience in cloud computing, DevOps, full-stack development,  
-      distributed systems, and AI-assisted testing. Skilled in Docker, Supabase, SQL,  
-      Node.js, Python, cybersecurity labs, and Unity-based rendering systems.  
-      Currently pursuing an M.S. in Information Technology at Gannon University.
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Resume</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Ali Al-Fatlawi</h1>
+    <p class="lede" style="margin-bottom:18px;">
+      View the embedded PDF below or download it using the button above.
     </p>
-  </div>
 
-  <div class="card">
-    <h2>Core Skills</h2>
-    <ul>
-      <li>Cloud & DevOps (AWS ECS, Docker, Cloudflare, Nginx Proxy Manager)</li>
-      <li>Backend Development (Node.js, Express, SQL/Postgres, MongoDB)</li>
-      <li>Frontend (Vite, JavaScript, Tailwind)</li>
-      <li>Automation & Scripting (Python, Bash)</li>
-      <li>Cybersecurity Labs (SQLi, SET, JTR, DAC/umask)</li>
-      <li>AI Tools (LLMs for test generation & issue classification)</li>
-    </ul>
+    <div class="card" style="padding:0;">
+      <iframe
+        class="pdf-frame"
+        src="Ali_Al-Fatlawi_Resume.pdf#view=FitH"
+        title="Ali Al-Fatlawi Resume PDF"
+      ></iframe>
+    </div>
   </div>
+</section>
 
-</div>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

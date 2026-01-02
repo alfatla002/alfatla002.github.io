@@ -1,63 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Cybersecurity Labs | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Cybersecurity Labs (SQLi, SET, JTR)</h1>
 
-  <h1>Cybersecurity Labs (SQLi, SET, JTR)</h1>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          A series of cybersecurity labs focusing on practical attacks and defenses, including SQL injection,
+          password cracking, social engineering, DAC permissions, and system-level privilege modeling.
+        </p>
+      </div>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      A series of cybersecurity labs focusing on practical attacks and defenses, including SQL injection,
-      password cracking, social engineering, DAC permissions, and system-level privilege modeling.
-    </p>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Labs Completed</h2>
+        <ul style="margin-left:18px; display:grid; gap:10px;">
+          <li><strong>SQL Injection (SQLMap)</strong>  
+            Performed enumeration, database dumping, and authentication bypass attempts.
+          </li>
+          <li><strong>John the Ripper</strong>  
+            Cracked password hashes extracted from Linux and Windows systems.
+          </li>
+          <li><strong>Social Engineering Toolkit</strong>  
+            Credential harvesting using cloned login pages (Facebook, Instagram demos).
+          </li>
+          <li><strong>User/Group DAC Permissions</strong>  
+            umask analysis, ACLs, ownership transfers, and privilege restrictions.
+          </li>
+          <li><strong>Brute-force simulations</strong>  
+            2FA security review & attack modeling.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Kali Linux</li>
+          <li>SQLMap</li>
+          <li>John the Ripper</li>
+          <li>SET Toolkit</li>
+          <li>Linux user/group management</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2>Labs Completed</h2>
-    <ul>
-      <li><strong>SQL Injection (SQLMap)</strong>  
-        Performed enumeration, database dumping, and authentication bypass attempts.
-      </li>
-      <li><strong>John the Ripper</strong>  
-        Cracked password hashes extracted from Linux and Windows systems.
-      </li>
-      <li><strong>Social Engineering Toolkit</strong>  
-        Credential harvesting using cloned login pages (Facebook, Instagram demos).
-      </li>
-      <li><strong>User/Group DAC Permissions</strong>  
-        umask analysis, ACLs, ownership transfers, and privilege restrictions.
-      </li>
-      <li><strong>Brute-force simulations</strong>  
-        2FA security review & attack modeling.
-      </li>
-    </ul>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
   </div>
+</footer>
 
-  <div class="card">
-    <h2>Technologies Used</h2>
-    <ul>
-      <li>Kali Linux</li>
-      <li>SQLMap</li>
-      <li>John the Ripper</li>
-      <li>SET Toolkit</li>
-      <li>Linux user/group management</li>
-    </ul>
-  </div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-</div>
 </body>
 </html>

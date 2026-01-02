@@ -1,52 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Marvel API Microservice | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
-  <h1>Marvel API Microservice</h1>
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Marvel API Microservice</h1>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      A RESTful backend that fetches Marvel character and comic data from the
-      official Marvel API, processes it, and stores records in Supabase for fast reuse.
-      Includes MD5-based signature authentication and rate-limit management.
-    </p>
-  </div>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          A RESTful backend that fetches Marvel character and comic data from the
+          official Marvel API, processes it, and stores records in Supabase for fast reuse.
+          Includes MD5-based signature authentication and rate-limit management.
+        </p>
+      </div>
 
-  <div class="card">
-    <h2>Technologies Used</h2>
-    <ul>
-      <li>Node.js (Express)</li>
-      <li>Supabase (Database + Storage)</li>
-      <li>Marvel Developer API</li>
-      <li>MD5 signing algorithm</li>
-    </ul>
-  </div>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Node.js (Express)</li>
+          <li>Supabase (Database + Storage)</li>
+          <li>Marvel Developer API</li>
+          <li>MD5 signing algorithm</li>
+        </ul>
+      </div>
 
-  <div class="card">
-    <h2>My Contributions</h2>
-    <ul>
-      <li>Built RESTful API routes for character & comic ingestion</li>
-      <li>Implemented Marvel MD5 hashing for API authentication</li>
-      <li>Created database schema for caching API responses</li>
-      <li>Added filtering endpoints for searching heroes</li>
-      <li>Optimized ingestion to reduce rate-limit usage</li>
-    </ul>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">My Contributions</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Built RESTful API routes for character & comic ingestion</li>
+          <li>Implemented Marvel MD5 hashing for API authentication</li>
+          <li>Created database schema for caching API responses</li>
+          <li>Added filtering endpoints for searching heroes</li>
+          <li>Optimized ingestion to reduce rate-limit usage</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

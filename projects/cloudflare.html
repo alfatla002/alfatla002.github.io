@@ -1,60 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Cloudflare + Nginx Proxy Manager | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Cloudflare + Nginx Proxy Manager Architecture</h1>
 
-  <h1>Cloudflare + Nginx Proxy Manager Architecture</h1>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          Built a fully functional domain + reverse proxy architecture using Cloudflare DNS and
+          Nginx Proxy Manager (NPM). This architecture powers multiple web apps, including  
+          Supabase deployments, image galleries, and backend APIs.
+        </p>
+      </div>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      Built a fully functional domain + reverse proxy architecture using Cloudflare DNS and
-      Nginx Proxy Manager (NPM). This architecture powers multiple web apps, including  
-      Supabase deployments, image galleries, and backend APIs.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Architecture Features</h2>
-    <ul>
-      <li>Cloudflare DNS configuration (A, CNAME, proxied records)</li>
-      <li>Cloudflare Zero Trust tunnel for secure internal hosting</li>
-      <li>Nginx Proxy Manager reverse proxy routing</li>
-      <li>HTTPS certificates</li>
-      <li>Domain segmentation with subdomains like:
-        <ul>
-          <li><code>supa.gcis667.com</code></li>
-          <li><code>studio.gcis667.com</code></li>
-          <li><code>proxy.gcis667.com</code></li>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Architecture Features</h2>
+        <ul style="margin-left:18px; display:grid; gap:10px;">
+          <li>Cloudflare DNS configuration (A, CNAME, proxied records)</li>
+          <li>Cloudflare Zero Trust tunnel for secure internal hosting</li>
+          <li>Nginx Proxy Manager reverse proxy routing</li>
+          <li>HTTPS certificates</li>
+          <li>Domain segmentation with subdomains like:
+            <ul style="margin-top:10px; margin-left:18px; display:grid; gap:8px;">
+              <li><code>supa.gcis667.com</code></li>
+              <li><code>studio.gcis667.com</code></li>
+              <li><code>proxy.gcis667.com</code></li>
+            </ul>
+          </li>
         </ul>
-      </li>
-    </ul>
-  </div>
+      </div>
 
-  <div class="card">
-    <h2>My Contributions</h2>
-    <ul>
-      <li>Configured Cloudflare DNS records for multiple services</li>
-      <li>Deployed Nginx Proxy Manager and set up URL routing</li>
-      <li>Managed SSL certificates and forced HTTPS policies</li>
-      <li>Integrated Supabase local studio through Cloudflare tunnel</li>
-      <li>Debugged routing issues with Docker and Cloudflare</li>
-    </ul>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">My Contributions</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Configured Cloudflare DNS records for multiple services</li>
+          <li>Deployed Nginx Proxy Manager and set up URL routing</li>
+          <li>Managed SSL certificates and forced HTTPS policies</li>
+          <li>Integrated Supabase local studio through Cloudflare tunnel</li>
+          <li>Debugged routing issues with Docker and Cloudflare</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
 
-</div>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

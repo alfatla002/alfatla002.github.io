@@ -1,53 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>AWS ECS Deployment | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
-  <h1>AWS ECS Fargate Cloud Deployment</h1>
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">AWS ECS Fargate Cloud Deployment</h1>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      A cloud deployment project using AWS ECS Fargate to host a containerized static site.
-      Includes load balancing, container orchestration, automated builds, and Cloudflare routing.
-    </p>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          A cloud deployment project using AWS ECS Fargate to host a containerized static site.
+          Includes load balancing, container orchestration, automated builds, and Cloudflare routing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>AWS ECS Fargate</li>
+          <li>Application Load Balancer (ALB)</li>
+          <li>Docker</li>
+          <li>Cloudflare DNS</li>
+          <li>GitHub Actions (optional pipeline)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">My Contributions</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Containerized application and created ECS Task Definition</li>
+          <li>Configured Fargate Service + ALB integration</li>
+          <li>Set up Cloudflare DNS routing to ECS endpoint</li>
+          <li>Implemented environment variable management</li>
+          <li>Optimized container resource limits</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2>Technologies Used</h2>
-    <ul>
-      <li>AWS ECS Fargate</li>
-      <li>Application Load Balancer (ALB)</li>
-      <li>Docker</li>
-      <li>Cloudflare DNS</li>
-      <li>GitHub Actions (optional pipeline)</li>
-    </ul>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
   </div>
+</footer>
 
-  <div class="card">
-    <h2>My Contributions</h2>
-    <ul>
-      <li>Containerized application and created ECS Task Definition</li>
-      <li>Configured Fargate Service + ALB integration</li>
-      <li>Set up Cloudflare DNS routing to ECS endpoint</li>
-      <li>Implemented environment variable management</li>
-      <li>Optimized container resource limits</li>
-    </ul>
-  </div>
-
-</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

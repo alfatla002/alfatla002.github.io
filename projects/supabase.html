@@ -1,67 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Supabase Image Gallery | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
-  <h1>Supabase Image Gallery & File Browser</h1>
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Supabase Image Gallery & File Browser</h1>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      A complete file browser built on Supabase Storage with secure backend routing,
-      multi-file upload support, bucket creation UI, thumbnail preview grid, and
-      drag-and-drop functionality — deployed with Cloudflare + Nginx Proxy Manager.
-    </p>
-  </div>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          A complete file browser built on Supabase Storage with secure backend routing,
+          multi-file upload support, bucket creation UI, thumbnail preview grid, and
+          drag-and-drop functionality — deployed with Cloudflare + Nginx Proxy Manager.
+        </p>
+      </div>
 
-  <div class="card">
-    <h2>Features</h2>
-    <ul>
-      <li>4×3 thumbnail gallery with real previews</li>
-      <li>Multi-file upload + drag and drop</li>
-      <li>Batch delete and batch download actions</li>
-      <li>Bucket creation UI</li>
-      <li>File browser with checkboxes</li>
-      <li>Backend service-role API for secure Storage uploads</li>
-      <li>Custom confirm dialog for drag-and-drop uploads</li>
-    </ul>
-  </div>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Features</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>4×3 thumbnail gallery with real previews</li>
+          <li>Multi-file upload + drag and drop</li>
+          <li>Batch delete and batch download actions</li>
+          <li>Bucket creation UI</li>
+          <li>File browser with checkboxes</li>
+          <li>Backend service-role API for secure Storage uploads</li>
+          <li>Custom confirm dialog for drag-and-drop uploads</li>
+        </ul>
+      </div>
 
-  <div class="card">
-    <h2>Technologies Used</h2>
-    <ul>
-      <li>Supabase Storage & Auth</li>
-      <li>Node.js backend (service role key)</li>
-      <li>Vite + JavaScript</li>
-      <li>Cloudflare DNS + Tunnels</li>
-      <li>Nginx Proxy Manager deployment</li>
-    </ul>
-  </div>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Supabase Storage & Auth</li>
+          <li>Node.js backend (service role key)</li>
+          <li>Vite + JavaScript</li>
+          <li>Cloudflare DNS + Tunnels</li>
+          <li>Nginx Proxy Manager deployment</li>
+        </ul>
+      </div>
 
-  <div class="card">
-    <h2>My Contributions</h2>
-    <ul>
-      <li>Built secure backend for bucket/file operations</li>
-      <li>Designed custom thumbnail grid system</li>
-      <li>Implemented multi-file upload handling</li>
-      <li>Added batch-select, delete, and filtering</li>
-      <li>Created bucket creation UI + handlers</li>
-      <li>Deployed using Cloudflare + Nginx Reverse Proxy</li>
-    </ul>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">My Contributions</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Built secure backend for bucket/file operations</li>
+          <li>Designed custom thumbnail grid system</li>
+          <li>Implemented multi-file upload handling</li>
+          <li>Added batch-select, delete, and filtering</li>
+          <li>Created bucket creation UI + handlers</li>
+          <li>Deployed using Cloudflare + Nginx Reverse Proxy</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

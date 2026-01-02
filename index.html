@@ -1,57 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ali Al-Fatlawi | Software Engineer</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ali Al-Fatlawi | Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<header>
-  <div class="logo">Ali Al-Fatlawi</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <div class="brand-sub">Software Engineer • Cloud & IT</div>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a class="active" href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Portfolio</div>
+      <h1 class="h1">Building clean systems with cloud + code.</h1>
+      <p class="lede">
+        I’m Ali — a Software Engineer focused on cloud deployments,
+        backend APIs, and practical DevOps.
+      </p>
 
-  <h1>Hello, I'm Ali 👋</h1>
-  <p>
-    Software Engineer • Cloud & IT Systems  M.S. in Information Technology, Gannon University
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="projects.html">View Projects</a>
+        <a class="btn btn-ghost" href="contact.html">Contact</a>
+      </div>
+    </div>
 
-  </p>
-
-  <h2>About Me</h2>
-  <p>
-    I build scalable systems using Docker, Supabase, SQL, Node.js, Unity, and cloud platforms.
-    My work spans backend APIs, containerized deployments, XR systems, and AI-driven software testing 
-    research.
-  </p>
-
-  <h2>Featured Projects</h2>
-
-  <div class="card">
-    <h3>Remote Rendering System (Lockheed Martin)</h3>
-    <p>High-performance split rendering for low-end devices using Unity, ArenaXR, and Docker.</p>
-    <a href="projects/lockheed.html">View Project →</a>
+      <div class="hero-visual hero-photo-wrap">
+        <img class="hero-photo" src="me.jpg" alt="Ali Al-Fatlawi" />
+      </div>
   </div>
+</section>
 
-  <div class="card">
-    <h3>ButterBot: Discord Economy System</h3>
-    <p>SQL-backed economy bot with loan system, shop UI, bank upgrades, and bodyguards.</p>
-    <a href="projects/butterbot.html">View Project →</a>
+<section class="section">
+  <div class="container">
+    <div class="kicker">Highlights</div>
+    <h2 class="h1" style="font-size:34px;">Featured Work</h2>
+
+    <div class="grid">
+      <div class="card">
+        <a class="card-link" href="projects/lockheed.html">
+          <h3>Remote Rendering (Lockheed Martin)</h3>
+          <p>Unity + Docker split rendering for low-end devices.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/butterbot.html">
+          <h3>ButterBot Discord Economy</h3>
+          <p>SQL-backed Discord bot with loans and shop systems.</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="projects/supabase.html">
+          <h3>Supabase Image Gallery</h3>
+          <p>Secure storage browser with uploads and filters.</p>
+        </a>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h3>Supabase Image Gallery</h3>
-    <p>Modern file browser with thumbnails, secure uploads, bucket manager, and custom backend.</p>
-    <a href="projects/supabase.html">View Project →</a>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
   </div>
+</footer>
 
-</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

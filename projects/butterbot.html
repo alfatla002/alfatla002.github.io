@@ -1,64 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ButterBot Discord Economy | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
-  <h1>ButterBot — Discord Economy Bot</h1>
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">ButterBot — Discord Economy Bot</h1>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      A modular, SQL-backed Discord bot featuring an in-depth economy system,
-      interactive UI components, loan system, shop, bank upgrades,
-      cooldown tracking, and bodyguards for theft protection.
-    </p>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          A modular, SQL-backed Discord bot featuring an in-depth economy system,
+          interactive UI components, loan system, shop, bank upgrades,
+          cooldown tracking, and bodyguards for theft protection.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Node.js (Discord.js)</li>
+          <li>PostgreSQL (full migration from MongoDB)</li>
+          <li>Slash commands & Discord UI</li>
+          <li>Modular cog-based architecture</li>
+          <li>SQL schema for shop, loans, inventory, and stats</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Key Features</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Loan system with user-to-user lending</li>
+          <li>Interactive shop UI with custom buttons</li>
+          <li>Bank upgrades & bodyguard purchasing</li>
+          <li>Steal mechanics with stats & cooldowns</li>
+          <li>Inventory tracking & economic balancing</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">My Contributions</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Designed new database schema for balances, bodyguards, loans, stats</li>
+          <li>Implemented slash commands & module loaders</li>
+          <li>Created shop UI and item behavior system</li>
+          <li>Refactored codebase into maintainable cog structure</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2>Technologies Used</h2>
-    <ul>
-      <li>Node.js (Discord.js)</li>
-      <li>PostgreSQL (full migration from MongoDB)</li>
-      <li>Slash commands & Discord UI</li>
-      <li>Modular cog-based architecture</li>
-      <li>SQL schema for shop, loans, inventory, and stats</li>
-    </ul>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
   </div>
+</footer>
 
-  <div class="card">
-    <h2>Key Features</h2>
-    <ul>
-      <li>Loan system with user-to-user lending</li>
-      <li>Interactive shop UI with custom buttons</li>
-      <li>Bank upgrades & bodyguard purchasing</li>
-      <li>Steal mechanics with stats & cooldowns</li>
-      <li>Inventory tracking & economic balancing</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>My Contributions</h2>
-    <ul>
-      <li>Designed new database schema for balances, bodyguards, loans, stats</li>
-      <li>Implemented slash commands & module loaders</li>
-      <li>Created shop UI and item behavior system</li>
-      <li>Refactored codebase into maintainable cog structure</li>
-    </ul>
-  </div>
-
-</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

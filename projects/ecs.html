@@ -34,12 +34,28 @@
     <div class="kicker">Project</div>
     <h1 class="h1" style="font-size:42px; margin-bottom:10px;">AWS ECS Fargate Cloud Deployment</h1>
 
-    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
       <div class="card">
         <h2 style="margin-bottom:10px;">Overview</h2>
         <p>
-          A cloud deployment project using AWS ECS Fargate to host a containerized static site.
-          Includes load balancing, container orchestration, automated builds, and Cloudflare routing.
+          This project demonstrates containerized cloud deployment using AWS ECS Fargate,
+          focusing on deploying applications without managing underlying servers. The
+          objective was to understand managed container orchestration and scalable
+          deployment patterns.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
+        <p>
+          Applications were containerized using Docker and deployed through ECS task
+          definitions. Services were configured to maintain running containers while
+          automatically handling scaling and failure recovery.
+        </p>
+        <p style="margin-top:12px;">
+          An Application Load Balancer was introduced to distribute incoming traffic across
+          running containers. Environment variables were used to manage configuration
+          securely, and Cloudflare DNS was integrated for domain routing and external access.
         </p>
       </div>
 
@@ -47,22 +63,27 @@
         <h2 style="margin-bottom:10px;">Technologies Used</h2>
         <ul style="margin-left:18px; display:grid; gap:8px;">
           <li>AWS ECS Fargate</li>
-          <li>Application Load Balancer (ALB)</li>
           <li>Docker</li>
+          <li>Application Load Balancer</li>
           <li>Cloudflare DNS</li>
-          <li>GitHub Actions (optional pipeline)</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">My Contributions</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Containerized application and created ECS Task Definition</li>
-          <li>Configured Fargate Service + ALB integration</li>
-          <li>Set up Cloudflare DNS routing to ECS endpoint</li>
-          <li>Implemented environment variable management</li>
-          <li>Optimized container resource limits</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
+        <p>
+          Understanding AWS networking concepts such as task roles, security groups, and
+          load balancer routing required iterative testing and configuration refinement.
+          Container resource limits were tuned to balance performance and cost efficiency.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Outcome</h2>
+        <p>
+          The project demonstrates cloud deployment workflows and practical experience with
+          managed container infrastructure.
+        </p>
       </div>
     </div>
   </div>

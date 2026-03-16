@@ -1,61 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AI-Assisted Test Case Generator | Ali Al-Fatlawi</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI-Assisted Test Generation | Ali Al-Fatlawi</title>
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-  </nav>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
 </header>
 
-<div class="container">
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">AI-Assisted Test Generation (IN PROGRESS)</h1>
 
-  <h1>AI-Assisted JUnit Test Case Schema Generator (IN PROGRESS) </h1>
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          This project explores how large language models can assist in generating structured
+          JUnit test cases from real software development artifacts. It has moved beyond early
+          planning and now focuses on collecting GitHub issues, identifying useful issue–pull
+          request relationships, and using that data as the basis for test generation.
+        </p>
+        <p style="margin-top:12px;">
+          The goal is to create a workflow where issue data from real repositories is transformed
+          into structured test-generation inputs, then passed through an LLM-assisted process to
+          produce test cases or test schemas that can be evaluated and refined.
+        </p>
+      </div>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      Research project exploring how Large Language Models (LLMs) can classify GitHub issues and
-      generate structured JUnit test case templates based on user stories.  
-      This work supports automating testing workflows in large open-source repositories.
-    </p>
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Pipeline Overview (Current)</h2>
+        <img
+          src="../images/projects/ai-testgen-1.png"
+          alt="AI-assisted test generation workflow from issue collection to evaluation and fail-to-pass validation."
+          style="width:100%; max-width:860px; display:block; border-radius:12px; border:1px solid rgba(255,255,255,0.08);"
+        />
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
+        <p>
+          The project began with a research phase reviewing prior work in automated test
+          generation, machine learning in software testing, and issue-based software artifacts.
+          This helped define the gap: most prior approaches focus on test prioritization, defect
+          prediction, or generation from source code, while this work focuses on issue-level
+          information and linked development artifacts.
+        </p>
+        <p style="margin-top:12px;">
+          The workflow then moved into data collection, focusing on GitHub issues and whether
+          they had associated pull requests. Issue–PR links provide stronger evidence that an
+          issue describes concrete behavior that was implemented or fixed.
+        </p>
+        <p style="margin-top:12px;">
+          Current pipeline focus:
+        </p>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Collecting issue data from repositories</li>
+          <li>Filtering and organizing issue records</li>
+          <li>Identifying issue–PR relationships</li>
+          <li>Preparing prompt-ready inputs for LLM use</li>
+          <li>Generating test-oriented outputs</li>
+          <li>Analyzing failures and refining the workflow</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
+        <p>
+          A major challenge is identifying which GitHub issues are actually useful for testing
+          purposes. Many issues are noisy, incomplete, or not tied to concrete behavior. To
+          address this, the project filters issues and checks for linked pull requests where
+          possible.
+        </p>
+        <p style="margin-top:12px;">
+          Another challenge is that generated outputs may not compile or align with project
+          structure. The workflow includes error analysis and iterative refinement rather than
+          assuming generation succeeds on the first attempt.
+        </p>
+        <p style="margin-top:12px;">
+          As the project progressed, early ideas were revised to keep the methodology realistic
+          and aligned with available data and evaluation time.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Python</li>
+          <li>GitHub API</li>
+          <li>Large Language Models</li>
+          <li>Data cleaning and preprocessing</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Outcome</h2>
+        <p>
+          This project demonstrates research-driven software engineering, data pipeline design,
+          GitHub data collection, and practical application of LLMs to software testing workflows.
+          It is one of my strongest academic and technical projects because it combines research,
+          implementation planning, and real software repository analysis.
+        </p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2>Goals</h2>
-    <ul>
-      <li>Extract labeled user stories and issues from repositories</li>
-      <li>Use LLMs to classify issue type (bug, enhancement, feature request)</li>
-      <li>Automatically generate JUnit test case schema suggestions</li>
-      <li>Improve developer productivity and testing consistency</li>
-    </ul>
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
   </div>
+</footer>
 
-  <div class="card">
-    <h2>Research Context</h2>
-    <ul>
-      <li>Study of GitHub and Apache repositories where issues lack associated tests</li>
-      <li>Use of issue metadata, comments, and tags for classification</li>
-      <li>Evaluation of LLM performance against human-written examples</li>
-    </ul>
-  </div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-  <div class="card">
-    <h2>Technologies Used</h2>
-    <ul>
-      <li>Python</li>
-      <li>OpenAI LLMs</li>
-      <li>JUnit (schema modeling)</li>
-      <li>GitHub API</li>
-    </ul>
-  </div>
-
-</div>
 </body>
 </html>

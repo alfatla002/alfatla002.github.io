@@ -34,46 +34,89 @@
     <div class="kicker">Project</div>
     <h1 class="h1" style="font-size:42px; margin-bottom:10px;">ButterBot — Discord Economy Bot</h1>
 
-    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
       <div class="card">
         <h2 style="margin-bottom:10px;">Overview</h2>
         <p>
-          A modular, SQL-backed Discord bot featuring an in-depth economy system,
-          interactive UI components, loan system, shop, bank upgrades,
-          cooldown tracking, and bodyguards for theft protection.
+          ButterBot is a modular Discord bot designed to simulate a persistent economy
+          shared between users within a server. The project began as a simple command-based
+          bot but evolved into a structured backend system capable of handling financial
+          interactions such as loans, inventory management, shop purchases, and user
+          protection mechanics.
+        </p>
+        <p style="margin-top:12px;">
+          The goal of the project was to design a system that could handle complex
+          interactions between users while maintaining data consistency, scalability, and
+          maintainable code structure. It also served as an exploration of backend
+          architecture decisions, particularly the transition from document-based storage to
+          relational database design.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
+        <p>
+          The initial version of the bot used MongoDB for data storage. While this allowed
+          rapid development, limitations became apparent when implementing relationships
+          between users, particularly for loan agreements and shared economic interactions.
+          Queries became increasingly complex and difficult to maintain.
+        </p>
+        <p style="margin-top:12px;">
+          To address this, the system was redesigned around a relational SQL schema. Tables
+          were introduced for users, balances, loan agreements, bodyguards, and theft
+          statistics. This allowed relationships between users to be enforced at the
+          database level and simplified transactional updates.
+        </p>
+        <p style="margin-top:12px;">
+          The application structure was refactored into modular components, separating
+          economy logic from command handling and UI behavior. Discord slash commands and
+          interactive UI elements were introduced to reduce command complexity and improve
+          usability.
+        </p>
+        <p style="margin-top:12px;">
+          Shop items were implemented as independent logic modules, enabling future
+          expansion without modifying core bot logic and reducing the risk of breaking
+          existing functionality.
         </p>
       </div>
 
       <div class="card">
         <h2 style="margin-bottom:10px;">Technologies Used</h2>
         <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Node.js (Discord.js)</li>
-          <li>PostgreSQL (full migration from MongoDB)</li>
-          <li>Slash commands & Discord UI</li>
-          <li>Modular cog-based architecture</li>
-          <li>SQL schema for shop, loans, inventory, and stats</li>
+          <li>Node.js</li>
+          <li>Discord.js</li>
+          <li>SQL database</li>
+          <li>Slash commands and Discord UI components</li>
+          <li>Modular architecture design</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">Key Features</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Loan system with user-to-user lending</li>
-          <li>Interactive shop UI with custom buttons</li>
-          <li>Bank upgrades & bodyguard purchasing</li>
-          <li>Steal mechanics with stats & cooldowns</li>
-          <li>Inventory tracking & economic balancing</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
+        <p>
+          A major challenge was maintaining consistency between user balances during
+          concurrent operations such as loans or theft attempts. Moving to SQL enabled
+          transactions and structured updates that prevented inconsistent states.
+        </p>
+        <p style="margin-top:12px;">
+          Another challenge involved balancing gameplay mechanics so that the economy
+          remained stable over time. Cooldowns and limits were introduced to prevent abuse
+          while maintaining engagement.
+        </p>
+        <p style="margin-top:12px;">
+          Refactoring an existing project without breaking functionality required careful
+          testing and incremental changes, reinforcing the importance of modular design.
+        </p>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">My Contributions</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Designed new database schema for balances, bodyguards, loans, stats</li>
-          <li>Implemented slash commands & module loaders</li>
-          <li>Created shop UI and item behavior system</li>
-          <li>Refactored codebase into maintainable cog structure</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Outcome</h2>
+        <p>
+          The final system demonstrates backend architecture principles, relational database
+          design, and modular application development. The project highlights the transition
+          from rapid prototyping toward maintainable, scalable software engineering
+          practices.
+        </p>
       </div>
     </div>
   </div>

@@ -38,50 +38,109 @@
       <div class="card">
         <h2 style="margin-bottom:10px;">Overview</h2>
         <p>
-          A complete file browser built on Supabase Storage with secure backend routing,
-          multi-file upload support, bucket creation UI, thumbnail preview grid, and
-          drag-and-drop functionality — deployed with Cloudflare + Nginx Proxy Manager.
+          This project is a cloud-based file management application built on Supabase
+          Storage. The goal was to replicate the usability of modern cloud storage platforms
+          while maintaining secure access control and preventing direct exposure of
+          sensitive storage credentials.
+        </p>
+        <p style="margin-top:12px;">
+          The application allows users to upload, browse, filter, and manage files through a
+          grid-based interface with thumbnail previews and batch operations.
         </p>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">Features</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>4×3 thumbnail gallery with real previews</li>
-          <li>Multi-file upload + drag and drop</li>
-          <li>Batch delete and batch download actions</li>
-          <li>Bucket creation UI</li>
-          <li>File browser with checkboxes</li>
-          <li>Backend service-role API for secure Storage uploads</li>
-          <li>Custom confirm dialog for drag-and-drop uploads</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Gallery</h2>
+        <div class="project-gallery">
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/supabase-1.png" data-caption="Supabase Storage: bucket selection, upload panel, and file list.">
+              <img src="../images/projects/supabase-1.png" alt="Supabase Storage bucket and upload interface" loading="lazy" />
+            </button>
+            <figcaption>Bucket creation + upload flow in the Supabase Storage UI.</figcaption>
+          </figure>
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/supabase-2.png" data-caption="Cloud Storage Manager: bucket creation, drag/drop upload, and gallery panel.">
+              <img src="../images/projects/supabase-2.png" alt="Cloud Storage Manager UI with bucket creation and upload panel" loading="lazy" />
+            </button>
+            <figcaption>Cloud Storage Manager: create buckets and upload images.</figcaption>
+          </figure>
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/supabase-3.png" data-caption="Cloud Storage Manager: gallery view with pagination controls.">
+              <img src="../images/projects/supabase-3.png" alt="Cloud Storage Manager UI with gallery panel" loading="lazy" />
+            </button>
+            <figcaption>Gallery view with pagination and empty-state messaging.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
+        <p>
+          Early implementations interacted directly with Supabase Storage from the frontend
+          using the anonymous key. This approach introduced security limitations and
+          restricted control over file operations.
+        </p>
+        <p style="margin-top:12px;">
+          The architecture was redesigned so that all storage interactions were routed
+          through a Node.js backend using the Supabase service role key. The frontend handles
+          authentication and UI interactions, while the backend validates and executes
+          storage operations.
+        </p>
+        <p style="margin-top:12px;">
+          A custom file browser interface was developed to display files in a structured
+          grid layout. Multi-file upload functionality, drag-and-drop interactions, and
+          bulk actions were implemented to improve workflow efficiency.
+        </p>
+        <p style="margin-top:12px;">
+          Deployment involved integrating Cloudflare DNS and Nginx Proxy Manager to securely
+          expose services while keeping backend components isolated.
+        </p>
       </div>
 
       <div class="card">
         <h2 style="margin-bottom:10px;">Technologies Used</h2>
         <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Supabase Storage & Auth</li>
-          <li>Node.js backend (service role key)</li>
-          <li>Vite + JavaScript</li>
-          <li>Cloudflare DNS + Tunnels</li>
-          <li>Nginx Proxy Manager deployment</li>
+          <li>Supabase Storage and Authentication</li>
+          <li>Node.js backend</li>
+          <li>Vite frontend</li>
+          <li>Cloudflare DNS</li>
+          <li>Nginx Proxy Manager</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">My Contributions</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Built secure backend for bucket/file operations</li>
-          <li>Designed custom thumbnail grid system</li>
-          <li>Implemented multi-file upload handling</li>
-          <li>Added batch-select, delete, and filtering</li>
-          <li>Created bucket creation UI + handlers</li>
-          <li>Deployed using Cloudflare + Nginx Reverse Proxy</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
+        <p>
+          The primary challenge involved balancing usability with security. Direct storage
+          access simplified development but introduced risks. Moving storage logic to the
+          backend allowed stricter validation and improved control.
+        </p>
+        <p style="margin-top:12px;">
+          Handling large numbers of files efficiently required thumbnail rendering and UI
+          optimization to prevent excessive loading times.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Outcome</h2>
+        <p>
+          The project demonstrates practical cloud architecture patterns, secure backend
+          design, and separation of concerns between frontend and infrastructure components.
+        </p>
       </div>
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner" role="dialog" aria-modal="true">
+    <div class="lightbox-bar">
+      <span id="lightbox-caption">Preview</span>
+      <button class="lightbox-close" type="button" aria-label="Close preview">Close</button>
+    </div>
+    <img class="lightbox-media" id="lightbox-image" alt="" />
+  </div>
+</div>
 
 <footer class="footer">
   <div class="container">
@@ -91,6 +150,35 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".lightbox-trigger").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      lightboxImage.src = btn.dataset.full;
+      lightboxCaption.textContent = btn.dataset.caption || "Preview";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImage.src = "";
+  };
+
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
 </script>
 
 </body>

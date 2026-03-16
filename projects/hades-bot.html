@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hades Bot | Ali Al-Fatlawi</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="brand-name">Ali Al-Fatlawi</div>
+        <span class="brand-sub">Software Engineer • Cloud & IT</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../projects.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="../resume.html">Download Resume</a>
+  </div>
+</header>
+
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="kicker">Project</div>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Hades Bot — Discord Utility & AI Bot</h1>
+
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          Hades Bot is a Discord bot project I actively develop as a more advanced and
+          expandable system. Unlike smaller feature-specific bots, Hades Bot is an ongoing
+          application where I continue adding commands, improving architecture, and
+          integrating external services. The project combines backend logic, API
+          integration, deployment, command design, and long-term maintainability.
+        </p>
+        <p style="margin-top:12px;">
+          The goal is to create a reliable, feature-rich bot that supports utility
+          features, conversational responses, and future extensibility while maintaining a
+          modular structure that is easy to update over time.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Hades</h2>
+        <img
+          src="../images/projects/hades-1.jpg"
+          alt="Hades the cat"
+          class="project-image"
+        />
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
+        <p>
+          The bot was designed using a modular command structure so new features could be
+          added without rewriting the entire application. Commands were separated into
+          organized folders and files, making it easier to maintain and expand as
+          functionality increased.
+        </p>
+        <p style="margin-top:12px;">
+          I integrated external AI services so the bot could respond dynamically instead
+          of relying only on fixed command outputs. This required handling API requests,
+          managing environment variables securely, and updating model usage when providers
+          deprecated older models.
+        </p>
+        <p style="margin-top:12px;">
+          The bot was deployed on a cloud-hosted Linux server, which required process
+          management, environment configuration, and remote maintenance. This provided
+          experience building application logic while keeping a real service running and
+          troubleshooting deployment-related issues.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Node.js</li>
+          <li>Discord.js</li>
+          <li>External AI API integration</li>
+          <li>Linux server deployment</li>
+          <li>PM2</li>
+          <li>Environment variable management</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
+        <p>
+          A key challenge was designing the bot so it could grow over time without
+          becoming difficult to manage. Modularizing commands and separating logic by
+          feature made the codebase more maintainable.
+        </p>
+        <p style="margin-top:12px;">
+          Another challenge involved API model changes and deprecations. Since AI model
+          providers may remove or replace older models, I updated integration logic and
+          error handling to keep the bot functional.
+        </p>
+        <p style="margin-top:12px;">
+          Deployment and uptime were also important. Running the bot on a Linux server
+          required process management, restart handling, and configuration fixes when
+          external services changed.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Outcome</h2>
+        <p>
+          Hades Bot demonstrates long-term project development, backend programming,
+          external API integration, and deployment experience. It is one of my stronger
+          personal projects because it reflects both software development and practical
+          operations work.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Ali Al-Fatlawi
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Java Utility Programs | Ali Al-Fatlawi</title>
+  <title>Java To-Do List & Calendar | Ali Al-Fatlawi</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
@@ -32,30 +32,63 @@
 <section class="section" style="padding-top:40px;">
   <div class="container">
     <div class="kicker">Project</div>
-    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Java Utility Programs</h1>
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Java To-Do List & Calendar Application</h1>
 
-    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
       <div class="card">
-        <h2 style="margin-bottom:10px;">Programs Included</h2>
+        <h2 style="margin-bottom:10px;">Overview</h2>
+        <p>
+          This project is a Java-based productivity application designed to manage notes,
+          task lists, checklists, and scheduled activities within a single application. The
+          project focused on applying object-oriented design principles while supporting
+          feature expansion without breaking existing functionality.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
+        <p>
+          The application initially began as a simple note-taking system. As requirements
+          expanded, the architecture was refactored to support multiple independent data
+          types including notes, tasks, and checklist items.
+        </p>
+        <p style="margin-top:12px;">
+          A calendar feature was introduced to associate tasks with due dates, enabling
+          users to track upcoming responsibilities. The internal structure was redesigned
+          to separate data management from user interaction logic, allowing new features to
+          be added safely.
+        </p>
+        <p style="margin-top:12px;">
+          Testing was introduced during refactoring to ensure that newly added features such
+          as multiple note sheets and calendar functionality did not introduce regressions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
         <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Array sum calculator</li>
-          <li>Average-of-array tool</li>
-          <li>Forward & reverse list printer</li>
-          <li>Multiples-of-N generator</li>
-          <li>Max-of-three finder</li>
-          <li>Scanner-based input utilities</li>
+          <li>Java</li>
+          <li>Object-Oriented Programming</li>
+          <li>Modular class design</li>
+          <li>File-based data handling</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">Concepts Demonstrated</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>For-loops & iteration</li>
-          <li>Conditionals (if / switch / comparisons)</li>
-          <li>Array initialization & traversal</li>
-          <li>Method creation & return values</li>
-          <li>User input with Scanner</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
+        <p>
+          Expanding functionality while maintaining stability required restructuring class
+          responsibilities and reducing tight coupling between components. This reinforced
+          the importance of modular design and incremental refactoring.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Outcome</h2>
+        <p>
+          The project demonstrates object-oriented design, iterative software development,
+          and structured feature expansion within a growing application.
+        </p>
       </div>
     </div>
   </div>

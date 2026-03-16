@@ -34,35 +34,64 @@
     <div class="kicker">Project</div>
     <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Marvel API Microservice</h1>
 
-    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
       <div class="card">
         <h2 style="margin-bottom:10px;">Overview</h2>
         <p>
-          A RESTful backend that fetches Marvel character and comic data from the
-          official Marvel API, processes it, and stores records in Supabase for fast reuse.
-          Includes MD5-based signature authentication and rate-limit management.
+          The Marvel API Microservice is a RESTful backend designed to retrieve, process,
+          and cache data from the Marvel Developer API. The project focused on building a
+          structured backend service capable of handling authenticated external API
+          requests while minimizing unnecessary network calls.
+        </p>
+        <p style="margin-top:12px;">
+          The goal was to demonstrate API integration, backend data processing, and caching
+          strategies commonly used in production applications.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
+        <p>
+          The Marvel API requires MD5-based authentication using timestamped requests. The
+          backend was designed to generate authentication hashes dynamically and manage API
+          communication securely.
+        </p>
+        <p style="margin-top:12px;">
+          Retrieved data was normalized and stored in a Supabase database to reduce repeated
+          API calls and avoid rate-limit issues. API endpoints were implemented to allow
+          filtered retrieval of characters and related data.
+        </p>
+        <p style="margin-top:12px;">
+          Caching logic was introduced so that frequently requested data could be served
+          from the database rather than re-fetching from the external API.
         </p>
       </div>
 
       <div class="card">
         <h2 style="margin-bottom:10px;">Technologies Used</h2>
         <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Node.js (Express)</li>
-          <li>Supabase (Database + Storage)</li>
+          <li>Node.js</li>
+          <li>Supabase database</li>
           <li>Marvel Developer API</li>
-          <li>MD5 signing algorithm</li>
+          <li>MD5 hashing authentication</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">My Contributions</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Built RESTful API routes for character & comic ingestion</li>
-          <li>Implemented Marvel MD5 hashing for API authentication</li>
-          <li>Created database schema for caching API responses</li>
-          <li>Added filtering endpoints for searching heroes</li>
-          <li>Optimized ingestion to reduce rate-limit usage</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
+        <p>
+          Handling external API rate limits required introducing caching logic and
+          structured data storage. Designing endpoints that balanced flexibility with
+          simplicity required careful planning of request parameters and database schema.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Outcome</h2>
+        <p>
+          The project demonstrates backend service design, third-party API integration, and
+          performance optimization through caching strategies.
+        </p>
       </div>
     </div>
   </div>

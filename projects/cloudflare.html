@@ -34,42 +34,62 @@
     <div class="kicker">Project</div>
     <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Cloudflare + Nginx Proxy Manager Architecture</h1>
 
-    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
       <div class="card">
         <h2 style="margin-bottom:10px;">Overview</h2>
         <p>
-          Built a fully functional domain + reverse proxy architecture using Cloudflare DNS and
-          Nginx Proxy Manager (NPM). This architecture powers multiple web apps, including  
-          Supabase deployments, image galleries, and backend APIs.
+          This project focused on designing a reverse proxy and DNS architecture capable of
+          routing multiple services through a single domain while maintaining secure HTTPS
+          connections and clean service separation. The system supports multiple deployed
+          services including APIs, static websites, and cloud-hosted applications.
         </p>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">Architecture Features</h2>
-        <ul style="margin-left:18px; display:grid; gap:10px;">
-          <li>Cloudflare DNS configuration (A, CNAME, proxied records)</li>
-          <li>Cloudflare Zero Trust tunnel for secure internal hosting</li>
-          <li>Nginx Proxy Manager reverse proxy routing</li>
-          <li>HTTPS certificates</li>
-          <li>Domain segmentation with subdomains like:
-            <ul style="margin-top:10px; margin-left:18px; display:grid; gap:8px;">
-              <li><code>supa.gcis667.com</code></li>
-              <li><code>studio.gcis667.com</code></li>
-              <li><code>proxy.gcis667.com</code></li>
-            </ul>
-          </li>
+        <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
+        <p>
+          Cloudflare DNS was configured as the external entry point for all services. Nginx
+          Proxy Manager was deployed internally to route incoming traffic to the appropriate
+          containers or services based on subdomain configuration.
+        </p>
+        <p style="margin-top:12px;">
+          SSL certificates were configured to enforce HTTPS across all services. Cloudflare
+          tunnels were introduced to securely expose locally hosted services without
+          requiring open inbound firewall ports.
+        </p>
+        <p style="margin-top:12px;">
+          The architecture evolved through iterative troubleshooting of routing conflicts,
+          SSL configuration issues, and container networking behavior.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technologies Used</h2>
+        <ul style="margin-left:18px; display:grid; gap:8px;">
+          <li>Cloudflare DNS</li>
+          <li>Cloudflare Tunnel</li>
+          <li>Nginx Proxy Manager</li>
+          <li>Docker</li>
+          <li>SSL/TLS configuration</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">My Contributions</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Configured Cloudflare DNS records for multiple services</li>
-          <li>Deployed Nginx Proxy Manager and set up URL routing</li>
-          <li>Managed SSL certificates and forced HTTPS policies</li>
-          <li>Integrated Supabase local studio through Cloudflare tunnel</li>
-          <li>Debugged routing issues with Docker and Cloudflare</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
+        <p>
+          Ensuring reliable routing between external DNS and internal containers required
+          careful configuration of proxy rules and network mappings. Debugging SSL issues
+          highlighted the importance of certificate trust chains and proxy headers.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Outcome</h2>
+        <p>
+          The project demonstrates practical infrastructure design, reverse proxy
+          configuration, and real-world deployment workflows used in modern cloud
+          environments.
+        </p>
       </div>
     </div>
   </div>

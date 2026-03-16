@@ -34,42 +34,263 @@
     <div class="kicker">Project</div>
     <h1 class="h1" style="font-size:42px; margin-bottom:10px;">Remote Rendering System (Lockheed Martin)</h1>
 
-    <div class="grid" style="grid-template-columns: 1fr; max-width: 860px;">
+    <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
       <div class="card">
-        <h2 style="margin-bottom:10px;">Overview</h2>
+        <h2 style="margin-bottom:10px;">Project Overview</h2>
         <p>
-          A one-year engineering project mentored by Lockheed Martin.  
-          We developed a distributed <strong>split-rendering system</strong> that allows
-          low-end devices to display high-polygon 3D models by offloading rendering
-          to remote Unity/ArenaXR instances running inside Docker containers.
+          This project was developed in collaboration with Lockheed Martin as part of a
+          team-based engineering effort focused on solving a major limitation in real-time
+          graphics: enabling high-polygon 3D scenes to run smoothly on low-end devices such
+          as mobile phones and lightweight computers.
+        </p>
+        <p style="margin-top:12px;">
+          Modern 3D applications often require powerful GPUs and significant processing
+          resources, which prevents many users from accessing advanced simulations,
+          visualization tools, or immersive environments. The goal of this project was to
+          design and implement a remote rendering architecture capable of offloading heavy
+          rendering work to a remote server while maintaining real-time interaction and low
+          latency for the end user.
+        </p>
+        <p style="margin-top:12px;">
+          The objective was not simply to stream video, but to create an interactive system
+          where users could navigate and interact with complex scenes while rendering
+          decisions were dynamically optimized based on device capability and network
+          conditions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Problem Being Solved</h2>
+        <p>
+          High-polygon 3D environments place significant strain on local hardware. Low-end
+          devices typically struggle with GPU limitations, memory constraints, thermal
+          throttling, inconsistent frame rates, and poor performance under network
+          fluctuation. Existing solutions either required powerful hardware or introduced
+          too much latency for real-time interaction.
+        </p>
+        <p style="margin-top:12px;">
+          The project aimed to bridge this gap by developing a lightweight remote rendering
+          system capable of delivering high visual quality while maintaining responsiveness
+          on constrained devices. The central challenge was balancing three competing
+          requirements:
+        </p>
+        <ul style="margin-left:18px; margin-top:10px; display:grid; gap:8px;">
+          <li>High graphical fidelity</li>
+          <li>Low latency interaction</li>
+          <li>Compatibility with low-end hardware</li>
+        </ul>
+        <p style="margin-top:12px;">
+          Achieving all three simultaneously required architectural changes rather than
+          simple optimization.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Architecture/Repository</h2>
+        <div class="project-gallery">
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/lockheed-1.png" data-caption="System architecture: remote rendering, encoding, and headset composition flow.">
+              <img src="../images/projects/lockheed-1.png" alt="Remote rendering architecture diagram" loading="lazy" />
+            </button>
+            <figcaption>Architecture diagram showing original split-rendering workflow.</figcaption>
+          </figure>
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/lockheed-2.png" data-caption="Presentation slide highlighting the architecture of the split-rendering system.">
+              <img src="../images/projects/lockheed-2.png" alt="Architecture slide showing split-rendering pipeline" loading="lazy" />
+            </button>
+            <figcaption>Repository created own instance.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">System Architecture & Design Approach</h2>
+        <p>
+          The project was built on top of the open-source RenderFusion and ArenaXR
+          frameworks. Instead of building a rendering system from scratch, the team
+          analyzed the existing architecture and redesigned it to reduce complexity and
+          improve performance.
+        </p>
+        <p style="margin-top:12px;">
+          The most significant architectural decision was the removal of the traditional
+          network scene manager used by ArenaXR. This component originally handled object
+          synchronization and management but introduced additional overhead and latency.
+        </p>
+        <p style="margin-top:12px;">
+          The redesigned system replaced this with:
+        </p>
+        <ul style="margin-left:18px; margin-top:10px; display:grid; gap:8px;">
+          <li>Direct communication between client and remote server</li>
+          <li>Unity scripts responsible for converting scene objects into JSON</li>
+          <li>Automated decision logic determining whether objects should be rendered locally or remotely</li>
+        </ul>
+        <p style="margin-top:12px;">
+          This change reduced unnecessary processing layers and allowed faster
+          communication between devices. The remote server handled rendering and video
+          encoding while the local device focused on decoding, composition, and
+          interaction, enabling smoother performance even on limited hardware.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Presentation Overview</h2>
+        <div class="project-gallery">
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/lockheed-4.png" data-caption="Data modeling slide showing JSON representation of Unity objects.">
+              <img src="../images/projects/lockheed-4.png" alt="Data modeling slide with JSON example" loading="lazy" />
+            </button>
+            <figcaption>ArenaXR Overview.</figcaption>
+          </figure>
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/lockheed-3.png" data-caption="ArenaXR overview and accessibility focus in project presentation.">
+              <img src="../images/projects/lockheed-3.png" alt="ArenaXR overview slide" loading="lazy" />
+            </button>
+            <figcaption>Scene Builder Json.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Technical Implementation</h2>
+        <p>
+          The implementation was completed across multiple development phases using an
+          agile sprint structure. ArenaXR was first simplified to its essential components.
+          Features unrelated to remote rendering (video calls, audio systems, camera
+          functionality) were removed to reduce overhead and improve performance.
+        </p>
+        <p style="margin-top:12px;">
+          A headless Unity server was configured to perform remote rendering without
+          graphical output on the host machine. This allowed the server to focus entirely
+          on rendering performance and data transmission rather than UI processing. The
+          server handled scene rendering, object state updates, encoding rendered frames,
+          and transmitting visual output to the client.
+        </p>
+        <p style="margin-top:12px;">
+          Custom Unity scripts converted scene objects into structured JSON data (position,
+          rotation, scale, lighting, rendering status) so that object properties could be
+          transmitted efficiently between server and client. A decision-making system
+          determined whether an object should be rendered locally or remotely, evaluating
+          device capability, network conditions, latency measurements, and performance
+          metrics such as FPS.
+        </p>
+        <p style="margin-top:12px;">
+          The entire system was containerized using Docker to ensure consistency across
+          environments. This enabled reproducible deployments, simplified setup for testing
+          and scaling, and easier collaboration between team members.
         </p>
       </div>
 
       <div class="card">
         <h2 style="margin-bottom:10px;">Technologies Used</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Unity Engine</li>
-          <li>ArenaXR</li>
-          <li>Docker (multi-container system)</li>
-          <li>Python automation scripts</li>
-          <li>Google OAuth authentication</li>
-        </ul>
+        <div class="project-gallery">
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/lockheed-5.png" data-caption="Technologies used: WebXR, A-Frame, MQTT, and cloud computing.">
+              <img src="../images/projects/lockheed-5.png" alt="Technologies used slide" loading="lazy" />
+            </button>
+            <figcaption>Tech stack highlight slide.</figcaption>
+          </figure>
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/lockheed-8.png" data-caption="Unity test scene used to validate remote rendering behavior.">
+              <img src="../images/projects/lockheed-8.png" alt="Unity test scene with remote rendering objects" loading="lazy" />
+            </button>
+            <figcaption>Unity test scene example.</figcaption>
+          </figure>
+        </div>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">My Contributions</h2>
-        <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Integrated Unity client with ArenaXR remote-render</li>
-          <li>Developed Python scripts to start, stop, and manage render sessions</li>
-          <li>Implemented Google OAuth login system for secure access</li>
-          <li>Captured and analyzed performance metrics (FPS, latency, network load)</li>
-          <li>Built Docker images for hosting remote rendering nodes</li>
-          <li>Documented system architecture and hand-off for Lockheed Martin team</li>
-        </ul>
+        <h2 style="margin-bottom:10px;">Performance & Testing</h2>
+        <p>
+          A major focus of the project was performance validation. Testing included
+          measuring frame rates on low-end devices, monitoring latency between server and
+          client, testing under varying network conditions, and stress testing interaction
+          responsiveness. The system aimed to maintain approximately 30 FPS on constrained
+          hardware while preserving interactivity, a key requirement defined early in the
+          project scope.
+        </p>
+        <p style="margin-top:12px;">
+          Performance monitoring tools were integrated to provide real-time feedback on
+          resource usage and rendering efficiency.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Testing/New Workflow</h2>
+        <div class="project-gallery">
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/lockheed-6.png" data-caption="QA/testing results: performance, latency, and device compatibility.">
+              <img src="../images/projects/lockheed-6.png" alt="QA and testing slide" loading="lazy" />
+            </button>
+            <figcaption>QA/testing results: performance, latency, and device coverage.</figcaption>
+          </figure>
+          <figure class="project-shot">
+            <button class="lightbox-trigger" data-full="../images/projects/lockheed-7.png" data-caption="Repository list documenting ArenaXR-related work.">
+              <img src="../images/projects/lockheed-7.png" alt="Repository list for ArenaXR related work" loading="lazy" />
+            </button>
+            <figcaption>Newly created workflow.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Security & Engineering Practices</h2>
+        <p>
+          Security and software engineering practices were incorporated throughout
+          development. OAuth authentication was implemented for secure user login. Agile
+          sprint planning structured development progress, and GitHub pull requests ensured
+          code review before integration.
+        </p>
+        <p style="margin-top:12px;">
+          Docker standards were followed to maintain secure configurations, and continuous
+          documentation was maintained for enterprise collaboration. Working with Lockheed
+          Martin introduced enterprise-level expectations for documentation quality,
+          maintainability, and engineering discipline.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Challenges & Lessons Learned</h2>
+        <p>
+          The project presented several engineering challenges: balancing rendering quality
+          with latency constraints, handling network instability without disrupting
+          interaction, simplifying an existing complex architecture without breaking
+          functionality, and optimizing performance across different device capabilities.
+        </p>
+        <p style="margin-top:12px;">
+          One of the most important lessons learned was that performance improvements often
+          come from architectural simplification rather than micro-optimizations. Removing
+          unnecessary system layers significantly improved responsiveness and reduced
+          complexity.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Outcome & Impact</h2>
+        <p>
+          The final result demonstrated that high-polygon scenes could be interacted with
+          on low-end devices through a lightweight remote rendering approach. The system
+          showed that dynamic rendering decisions and containerized deployment could provide
+          a scalable solution for real-time graphics delivery.
+        </p>
+        <p style="margin-top:12px;">
+          This project represents my strongest experience working with distributed systems,
+          performance optimization, containerized deployments, real-time data exchange,
+          large-scale system architecture, and enterprise collaboration.
+        </p>
       </div>
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner" role="dialog" aria-modal="true">
+    <div class="lightbox-bar">
+      <span id="lightbox-caption">Preview</span>
+      <button class="lightbox-close" type="button" aria-label="Close preview">Close</button>
+    </div>
+    <img class="lightbox-media" id="lightbox-image" alt="" />
+  </div>
+</div>
 
 <footer class="footer">
   <div class="container">
@@ -79,6 +300,35 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".lightbox-trigger").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      lightboxImage.src = btn.dataset.full;
+      lightboxCaption.textContent = btn.dataset.caption || "Preview";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImage.src = "";
+  };
+
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
 </script>
 
 </body>

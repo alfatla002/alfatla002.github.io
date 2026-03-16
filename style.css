@@ -91,6 +91,15 @@ body::before{
 .nav a:hover{color:var(--text)}
 .nav a.active{color:var(--text)}
 
+/* Contact page link styling */
+.contact-link{
+  color:var(--text);
+  text-decoration:none;
+}
+.contact-link:hover{
+  color:var(--accent2);
+}
+
 /* Buttons */
 .btn{
   padding:10px 14px;
@@ -164,6 +173,20 @@ body::before{
   border: 1px solid rgba(255,255,255,.10);
 }
 
+.hero-initials{
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(120% 140% at 20% 20%, rgba(255,59,48,.25), transparent 60%),
+    radial-gradient(120% 140% at 80% 0%, rgba(255,106,61,.18), transparent 55%),
+    var(--panel);
+  color:var(--text);
+  font-size:64px;
+  font-weight:700;
+  letter-spacing:6px;
+  text-transform:uppercase;
+}
+
 /* Grid + Cards */
 .grid{
   display:grid;
@@ -206,12 +229,114 @@ body::before{
   font-size:14px;
 }
 
+/* Project galleries */
+.project-gallery{
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project-shot{
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  background:rgba(255,255,255,.02);
+}
+
+.project-shot img{
+  width:100%;
+  height:100%;
+  display:block;
+  aspect-ratio:16 / 9;
+  object-fit:cover;
+}
+
+.project-shot figcaption{
+  padding:10px 12px;
+  font-size:13px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  background:rgba(255,255,255,.02);
+}
+
+.project-shot button{
+  all:unset;
+  display:block;
+  cursor:pointer;
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(7,8,11,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+  padding:24px;
+}
+
+.lightbox.is-open{display:flex}
+
+.lightbox-inner{
+  max-width:min(1100px, 95vw);
+  width:100%;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.lightbox-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+  color:var(--muted);
+  font-size:13px;
+}
+
+.lightbox-close{
+  all:unset;
+  cursor:pointer;
+  padding:6px 10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+}
+
+.lightbox-media{
+  width:100%;
+  display:block;
+  max-height:80vh;
+  object-fit:contain;
+  background:#000;
+}
+
+.project-image{
+  width:100%;
+  max-width:420px;
+  display:block;
+  margin:0 auto;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
 /* Footer */
 .footer{
   padding:30px 0;
   border-top:1px solid var(--border);
   color:var(--muted);
   font-size:13px;
+}
+
+.pdf-frame{
+  width:100%;
+  height:min(85vh, 1100px);
+  min-height:680px;
+  border:0;
+  display:block;
 }
 
 /* =========================================

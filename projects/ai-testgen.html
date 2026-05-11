@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>AI-Assisted Test Generation | Ali Al-Fatlawi</title>
+  <title>LLM-Assisted Test Case Generation | Ali Al-Fatlawi</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
@@ -32,30 +32,60 @@
 <section class="section" style="padding-top:40px;">
   <div class="container">
     <div class="kicker">Project</div>
-    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">AI-Assisted Test Generation (IN PROGRESS)</h1>
+
+    <h1 class="h1" style="font-size:42px; margin-bottom:10px;">
+      LLM-Assisted Test Case Generation from GitHub Issues
+    </h1>
+
+    <div style="margin-bottom:24px;">
+      <a
+        class="btn btn-primary"
+        href="https://github.com/mearforreal/test_generation"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View GitHub Repository
+      </a>
+    </div>
 
     <div class="grid" style="grid-template-columns: 1fr; max-width: 920px;">
+
       <div class="card">
         <h2 style="margin-bottom:10px;">Overview</h2>
         <p>
-          This project explores how large language models can assist in generating structured
-          JUnit test cases from real software development artifacts. It has moved beyond early
-          planning and now focuses on collecting GitHub issues, identifying useful issue–pull
-          request relationships, and using that data as the basis for test generation.
+          This research project explores how large language models can generate executable
+          regression tests from real GitHub issue reports and linked pull requests. The system
+          collects closed bug issues, associated fixing pull requests, changed source files, and
+          repository context, then transforms that information into structured inputs for
+          LLM-assisted test generation.
         </p>
+
         <p style="margin-top:12px;">
-          The goal is to create a workflow where issue data from real repositories is transformed
-          into structured test-generation inputs, then passed through an LLM-assisted process to
-          produce test cases or test schemas that can be evaluated and refined.
+          The generated tests are evaluated using execution-based validation by running them
+          against both buggy and fixed versions of the target repositories. A test is considered
+          successful when it fails on the buggy version and passes on the fixed version, showing
+          that it captures the behavior corrected by the pull request.
+        </p>
+
+        <p style="margin-top:12px;">
+          Across 300 generated tests from multiple open-source repositories, the pipeline achieved
+          a 66% fail-to-pass success rate. The project also included human evaluation using the
+          RUST criteria to assess readability, understandability, specificity, and technical soundness.
         </p>
       </div>
 
       <div class="card">
-        <h2 style="margin-bottom:10px;">Pipeline Overview (Current)</h2>
+        <h2 style="margin-bottom:10px;">Pipeline Overview</h2>
+        <p style="margin-bottom:14px;">
+          The pipeline begins with GitHub issue collection and related code context retrieval.
+          The collected context is passed into LLM-based test generation, followed by compilation,
+          execution, error analysis, refinement, and fail-to-pass validation.
+        </p>
+
         <img
-          src="../images/projects/ai-testgen-1.png"
-          alt="AI-assisted test generation workflow from issue collection to evaluation and fail-to-pass validation."
-          style="width:100%; max-width:860px; display:block; border-radius:12px; border:1px solid rgba(255,255,255,0.08);"
+          src="../images/projects/llm-pipeline-diagram.png"
+          alt="LLM-assisted test generation pipeline showing GitHub issue collection, code context retrieval, test generation, evaluation, error analysis, and fail-to-pass validation."
+          style="width:100%; max-width:860px; display:block; border-radius:12px; border:1px solid rgba(255,255,255,0.08); background:white;"
         />
       </div>
 
@@ -63,45 +93,104 @@
         <h2 style="margin-bottom:10px;">System Design and Development Process</h2>
         <p>
           The project began with a research phase reviewing prior work in automated test
-          generation, machine learning in software testing, and issue-based software artifacts.
-          This helped define the gap: most prior approaches focus on test prioritization, defect
-          prediction, or generation from source code, while this work focuses on issue-level
-          information and linked development artifacts.
+          generation, search-based testing, symbolic execution, regression test prioritization,
+          reinforcement learning, and history-based test generation. This helped define the
+          research gap: many existing approaches rely heavily on source-code structure,
+          execution history, or predefined testing strategies, while this project focuses on
+          using real issue reports and linked development artifacts as inputs for test generation.
         </p>
+
         <p style="margin-top:12px;">
-          The workflow then moved into data collection, focusing on GitHub issues and whether
-          they had associated pull requests. Issue–PR links provide stronger evidence that an
-          issue describes concrete behavior that was implemented or fixed.
+          The workflow collects GitHub issues and linked pull requests, retrieves relevant code
+          context, generates tests using an LLM, and validates those tests by executing them
+          against buggy and fixed repository versions. This creates an objective way to evaluate
+          whether the generated tests actually detect the defect described by the issue.
         </p>
+
         <p style="margin-top:12px;">
-          Current pipeline focus:
+          The completed pipeline includes:
         </p>
+
         <ul style="margin-left:18px; display:grid; gap:8px;">
-          <li>Collecting issue data from repositories</li>
-          <li>Filtering and organizing issue records</li>
-          <li>Identifying issue–PR relationships</li>
-          <li>Preparing prompt-ready inputs for LLM use</li>
-          <li>Generating test-oriented outputs</li>
-          <li>Analyzing failures and refining the workflow</li>
+          <li>GitHub issue and pull request data collection</li>
+          <li>Filtering for closed bug issues with linked fixes</li>
+          <li>Extraction of changed files, diffs, and repository context</li>
+          <li>Prompt-ready input construction for LLM-based test generation</li>
+          <li>Generated test extraction and file path handling</li>
+          <li>Execution-based validation on buggy and fixed code versions</li>
+          <li>Iterative refinement using execution feedback</li>
+          <li>Result tracking across fail-to-pass, fail-to-fail, and pass-to-pass outcomes</li>
         </ul>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Automated Evaluation Results</h2>
+        <p style="margin-bottom:14px;">
+          The automated evaluation included 300 generated tests across three open-source
+          repositories. Of these, 199 tests achieved fail-to-pass behavior, producing an overall
+          success rate of approximately 66%.
+        </p>
+
+        <img
+          src="../images/projects/llm-results-summary.png"
+          alt="Results summary showing 300 tests generated, 66 percent fail-to-pass success rate, and repository-level test counts."
+          style="width:100%; max-width:860px; display:block; border-radius:12px; border:1px solid rgba(255,255,255,0.08);"
+        />
+
+        <p style="margin-top:14px;">
+          The evaluated repositories included NousResearch/hermes-agent, pytest-dev/pytest, and
+          sherlock-project/sherlock. The results show that the pipeline was able to generate
+          useful regression tests for a majority of evaluated cases, while also identifying
+          failure modes where generated tests did not correctly capture the target defect.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-bottom:10px;">Human Evaluation Results</h2>
+        <p style="margin-bottom:14px;">
+          In addition to automated fail-to-pass validation, the project used human evaluation
+          based on the RUST criteria: readability, understandability, specificity, and technical
+          soundness. The evaluation included 169 sampled tests, 12 participants, and 6 reviewer
+          groups, with two evaluators assigned to each test.
+        </p>
+
+        <img
+          src="../images/projects/llm-human-evaluation.png"
+          alt="Human evaluation results using RUST criteria with average scores for readability, understandability, specificity, and technical soundness."
+          style="width:100%; max-width:860px; display:block; border-radius:12px; border:1px solid rgba(255,255,255,0.08);"
+        />
+
+        <p style="margin-top:14px;">
+          The human evaluation produced an overall average score of 4.33 out of 5. Readability,
+          understandability, and specificity scored strongly, while technical soundness received
+          the lowest average score. This suggests that the generated tests were generally readable
+          and understandable, but still required careful review for correctness, maintainability,
+          and alignment with the intended defect behavior.
+        </p>
       </div>
 
       <div class="card">
         <h2 style="margin-bottom:10px;">Engineering Challenges & Solutions</h2>
         <p>
-          A major challenge is identifying which GitHub issues are actually useful for testing
-          purposes. Many issues are noisy, incomplete, or not tied to concrete behavior. To
-          address this, the project filters issues and checks for linked pull requests where
-          possible.
+          A major challenge was identifying which GitHub issues were useful for automated test
+          generation. Many issues are incomplete, noisy, or not clearly connected to a specific
+          code change. To address this, the pipeline filters issues and prioritizes those with
+          linked pull requests, allowing the system to connect issue descriptions with actual
+          fixing commits and changed files.
         </p>
+
         <p style="margin-top:12px;">
-          Another challenge is that generated outputs may not compile or align with project
-          structure. The workflow includes error analysis and iterative refinement rather than
-          assuming generation succeeds on the first attempt.
+          Another challenge was that LLM-generated tests may contain syntax errors, missing
+          imports, incorrect assumptions, or hallucinated APIs. The workflow handles this by
+          using execution feedback to identify failures and refine generated outputs rather than
+          assuming that the first generated test is correct.
         </p>
+
         <p style="margin-top:12px;">
-          As the project progressed, early ideas were revised to keep the methodology realistic
-          and aligned with available data and evaluation time.
+          The project also required a consistent evaluation method. Instead of judging tests only
+          by whether they run successfully, the pipeline measures fail-to-pass behavior: the test
+          should fail on the buggy version and pass on the fixed version. This provides stronger
+          evidence that the test captures the real defect.
         </p>
       </div>
 
@@ -109,21 +198,43 @@
         <h2 style="margin-bottom:10px;">Technologies Used</h2>
         <ul style="margin-left:18px; display:grid; gap:8px;">
           <li>Python</li>
-          <li>GitHub API</li>
+          <li>GitHub REST API</li>
           <li>Large Language Models</li>
+          <li>Automated test generation</li>
+          <li>Execution-based validation</li>
           <li>Data cleaning and preprocessing</li>
+          <li>Open-source repository analysis</li>
+          <li>Human evaluation using RUST criteria</li>
         </ul>
       </div>
 
       <div class="card">
         <h2 style="margin-bottom:10px;">Outcome</h2>
         <p>
-          This project demonstrates research-driven software engineering, data pipeline design,
-          GitHub data collection, and practical application of LLMs to software testing workflows.
-          It is one of my strongest academic and technical projects because it combines research,
-          implementation planning, and real software repository analysis.
+          The completed pipeline generated and evaluated 300 regression tests across multiple
+          open-source repositories, with 199 tests achieving fail-to-pass behavior. This represents
+          an overall success rate of approximately 66%, showing that the workflow can generate
+          useful tests for many real software defects while also revealing limitations such as
+          import errors, incorrect assertions, hallucinated APIs, and tests that fail on both
+          buggy and fixed versions.
+        </p>
+
+        <p style="margin-top:12px;">
+          The human evaluation further showed that generated tests were generally readable,
+          understandable, and specific, with an overall RUST score of 4.33 out of 5. However,
+          the lower technical soundness score highlights that LLM-generated tests still require
+          validation and review before being trusted in real development workflows.
+        </p>
+
+        <p style="margin-top:12px;">
+          This project demonstrates applied research, backend automation, GitHub API integration,
+          LLM-assisted software engineering, execution-based validation, human evaluation, and
+          data-driven analysis. It is one of my strongest technical projects because it combines
+          software development, research methodology, automated testing, and real-world repository
+          analysis.
         </p>
       </div>
+
     </div>
   </div>
 </section>

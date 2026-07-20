@@ -349,6 +349,13 @@ body::before{
   flex-wrap:wrap;         /* NEW: buttons stack cleanly on small */
 }
 
+.project-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:24px;
+}
+
 /* Hero photo (full-height, top-aligned) */
 .hero-photo-wrap{
   position: relative;

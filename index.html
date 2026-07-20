@@ -29,11 +29,12 @@
   </div>
 </header>
 
-<section class="hero">
+<main class="portfolio-slider">
+<section class="hero" id="intro-slide" aria-hidden="false">
   <div class="container hero-grid">
     <div>
       <div class="kicker">Portfolio</div>
-      <h1 class="h1">I’m Ali — Welcome to my portfolio. Here you can explore the applications, 
+      <h1 class="h1 hero-title" data-typewriter>I’m Ali — Welcome to my portfolio. Here you can explore the applications,
         cloud systems, automation tools, and personal projects I have built.</h1>
       <p class="lede">
         Explore my projects, technical skills, professional experience, and the solutions I have created!
@@ -46,34 +47,40 @@
     </div>
 
       <div class="hero-visual hero-photo-wrap">
-        <div class="hero-photo hero-initials" aria-label="Ali Al-Fatlawi initials">
-          A.A
-        </div>
+        <img class="hero-photo" src="Hades.jpg" alt="Hades, Ali's tabby cat"/>
       </div>
+
+      <a class="scroll-cue" href="#featured" data-show-featured aria-label="Continue to featured work">
+        <span>Next</span>
+        <span class="scroll-cue-arrows" aria-hidden="true"></span>
+      </a>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="featured" aria-hidden="true">
   <div class="container">
+    <button class="slide-back" type="button" data-show-intro>
+      <span aria-hidden="true">←</span> Back
+    </button>
     <div class="kicker">Highlights</div>
     <h2 class="h1" style="font-size:34px;">Featured Work</h2>
 
     <div class="grid">
-      <div class="card">
+      <div class="card reveal-card">
         <a class="card-link" href="projects/lockheed.html">
           <h3>Remote Rendering (Lockheed Martin)</h3>
           <p>Unity + Docker split rendering. Optomizing intensive applications on low-end devices.</p>
         </a>
       </div>
 
-      <div class="card">
+      <div class="card reveal-card">
         <a class="card-link" href="projects/hades-bot.html">
           <h3>Hades Bot — Discord Utility & AI Bot</h3>
           <p>Discord bot that you can type commands too!</p>
         </a>
       </div>
 
-      <div class="card">
+      <div class="card reveal-card">
         <a class="card-link" href="projects/supabase.html">
           <h3>Supabase Image Gallery</h3>
           <p>Image Gallery using Supabase Storage</p>
@@ -82,6 +89,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer class="footer">
   <div class="container">
@@ -91,7 +99,56 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  const title = document.querySelector("[data-typewriter]");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (title && !prefersReducedMotion) {
+    const message = title.textContent.replace(/\s+/g, " ").trim();
+    const titleHeight = title.offsetHeight;
+    let character = 0;
+
+    title.setAttribute("aria-label", message);
+    title.style.minHeight = `${titleHeight}px`;
+    title.textContent = "";
+    title.classList.add("is-typing");
+
+    const typeNextCharacter = () => {
+      title.textContent += message[character];
+      character += 1;
+
+      if (character < message.length) {
+        window.setTimeout(typeNextCharacter, 18);
+      } else {
+        title.classList.remove("is-typing");
+        title.style.minHeight = "";
+      }
+    };
+
+    window.setTimeout(typeNextCharacter, 250);
+  }
+
+  const slider = document.querySelector(".portfolio-slider");
+  const introSlide = document.querySelector("#intro-slide");
+  const featuredSlide = document.querySelector("#featured");
+  const showFeatured = document.querySelector("[data-show-featured]");
+  const showIntro = document.querySelector("[data-show-intro]");
+
+  const setSlide = (featuredIsVisible) => {
+    slider.classList.toggle("show-featured", featuredIsVisible);
+    introSlide.setAttribute("aria-hidden", featuredIsVisible);
+    featuredSlide.setAttribute("aria-hidden", !featuredIsVisible);
+    window.scrollTo({ top: slider.offsetTop, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  };
+
+  showFeatured.addEventListener("click", (event) => {
+    event.preventDefault();
+    setSlide(true);
+  });
+
+  showIntro.addEventListener("click", () => setSlide(false));
 </script>
 
+<script src="motion.js"></script>
 </body>
 </html>
